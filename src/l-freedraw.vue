@@ -10,7 +10,7 @@ interface SampleData {
   };
 }
 
-export default /*#__PURE__*/Vue.extend({
+export default /* #__PURE__ */Vue.extend({
   name: 'LFreedraw', // vue component name
   data(): SampleData {
     return {
