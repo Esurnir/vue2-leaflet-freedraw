@@ -11,7 +11,8 @@ import { terser } from 'rollup-plugin-terser';
 import minimist from 'minimist';
 
 // Get browserslist config and remove ie from es build targets
-const esbrowserslist = fs.readFileSync('./.browserslistrc')
+const esbrowserslist = fs
+  .readFileSync('./.browserslistrc')
   .toString()
   .split('\n')
   .filter((entry) => entry && entry.substring(0, 2) !== 'ie');
@@ -45,8 +46,7 @@ const baseConfig = {
         isProduction: true,
       },
     },
-    postVue: [
-    ],
+    postVue: [],
     babel: {
       exclude: 'node_modules/**',
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.vue'],
@@ -61,6 +61,10 @@ const external = [
   // list external dependencies, exactly the way it is written in the import statement.
   // eg. 'jquery'
   'vue',
+  'lodash-es',
+  'vue2-leaflet',
+  'leaflet',
+  'leaflet-freedraw',
 ];
 
 // UMD/IIFE shared settings: output.globals
@@ -69,6 +73,10 @@ const globals = {
   // Provide global variable names to replace your external imports
   // eg. jquery: '$'
   vue: 'Vue',
+  'lodash-es': '_',
+  'vue2-leaflet': 'Vue2Leaflet',
+  leaflet: 'L',
+  'leaflet-freedraw': 'LeafletFreeDraw',
 };
 
 // Customize configs for individual targets

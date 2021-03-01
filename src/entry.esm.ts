@@ -4,7 +4,7 @@ import _Vue, { PluginObject, VueConstructor } from 'vue';
 import component from '@/l-freedraw.vue';
 
 // Define typescript interfaces for installable component
-type InstallableComponent = VueConstructor<_Vue> & PluginObject<any>;
+type InstallableComponent = VueConstructor<_Vue> & PluginObject<undefined>;
 
 // Default export is installable instance of component.
 // IIFE injects install function into component, allowing component
