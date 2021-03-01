@@ -1,6 +1,6 @@
 {
   "name": "vue2-leaflet-freedraw",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Vue2Leaflet wrapper for Freedraw",
   "author": "Jean-Baptiste Zeller <esurnir@gmail.com>",
   "scripts": {
