@@ -1,4 +1,3 @@
-/* eslint-disable no-shadow */
 import { LeafletEvent, LatLng } from 'leaflet';
 
 export interface MarkerEvent extends LeafletEvent {
@@ -7,6 +6,19 @@ export interface MarkerEvent extends LeafletEvent {
 
 export interface MarkerEventHandler {
   (event: MarkerEvent): void;
+}
+
+export interface FreeDrawOptions {
+  mode: number;
+  smoothFactor: number;
+  elbowDistance: number;
+  simplifyFactor: number;
+  mergePolygons: boolean;
+  concavePolygon: boolean;
+  maximumPolygons: number;
+  notifyAfterEditExit: boolean;
+  leaveModeAfterCreate: boolean;
+  strokeWidth: number;
 }
 
 declare module 'leaflet' {
