@@ -158,8 +158,11 @@ export default Vue.extend({
       }
     },
     markerHandler(event: MarkerEvent) {
-      this.$emit('input', event.latLngs);
-      this.lastSetPolygons = event.latLngs;
+      const newPolygons = event.latLngs;
+      if (!isEqual(newPolygons, this.lastSetPolygons)) {
+        this.$emit('input', event.latLngs);
+        this.lastSetPolygons = event.latLngs;
+      }
     },
     setMode(mode: number) {
       if (!validateMode(mode)) {
