@@ -7,7 +7,12 @@
         </button>
       </l-control>
       <l-tile-layer url="https://{s}.tile.osm.org/{z}/{x}/{y}.png" />
-      <l-freedraw v-model="polygons" :mode="mode" />
+      <l-freedraw
+        v-model="polygons"
+        :mode="mode"
+        @click="clickHandler"
+        @markers="markerHandler"
+      />
     </l-map>
   </div>
 </template>
@@ -74,6 +79,12 @@ export default Vue.extend({
   methods: {
     flipActive() {
       this.isActive = !this.isActive;
+    },
+    clickHandler(event: Event) {
+      console.log('Click Handler: ', event);
+    },
+    markerHandler(event: Event) {
+      console.log('Marker handler: ', event);
     },
   },
 });
