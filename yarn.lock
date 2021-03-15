@@ -1158,6 +1158,20 @@
   resolved "https://registry.yarnpkg.com/@types/json5/-/json5-0.0.29.tgz#ee28707ae94e11d2b827bcbe5270bcea7f3e71ee"
   integrity sha1-7ihweulOEdK4J7y+UnC86n8+ce4=
 
+"@types/leaflet-freedraw@^2.13.0":
+  version "2.13.0"
+  resolved "https://registry.yarnpkg.com/@types/leaflet-freedraw/-/leaflet-freedraw-2.13.0.tgz#10894f463d135e8739fd89aab5bb0f56aae1e25c"
+  integrity sha512-GGe+tf3ciH4pAsnJa/et7UCCaye4hBbB59ruVQVVVPtS4/MjZfhoxNha/jWhfSo8gidnSGh9P2OT7RDyES99Vg==
+  dependencies:
+    "@types/leaflet" "*"
+
+"@types/leaflet@*":
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/@types/leaflet/-/leaflet-1.7.0.tgz#3700fb5d29a8214fbd496565b08ec28e40cee808"
+  integrity sha512-ltv5jR+VjKSMtoDkxH61Rsbo0zLU7iqyOXpVPkAX4F+79fg2eymC7t0msWsfNaEZO1FGTIQATCCCQe+ijWoicg==
+  dependencies:
+    "@types/geojson" "*"
+
 "@types/leaflet@^1.5.23":
   version "1.5.23"
   resolved "https://registry.yarnpkg.com/@types/leaflet/-/leaflet-1.5.23.tgz#159823a8c86a50383f0c9d9b9dac2af01fa7603b"

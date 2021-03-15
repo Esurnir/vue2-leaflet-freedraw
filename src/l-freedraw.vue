@@ -12,14 +12,13 @@ import FreeDraw, {
   EDIT_APPEND,
   DELETE,
   ALL,
+  MarkerEvent,
 } from 'leaflet-freedraw';
 import type { FreeDrawOptions } from 'leaflet-freedraw';
 import { findRealParent, propsBinder } from 'vue2-leaflet';
 import { debounce, isEqual } from 'lodash-es';
-import { DomEvent } from 'leaflet';
 import type { LLayerGroup, LMap } from 'vue2-leaflet';
-import type { LatLng } from 'leaflet';
-import { MarkerEvent } from './typings';
+import type { LatLng, Map } from 'leaflet';
 
 function withNonReactive<TData>(data: TData) {
   return <TNonReactive extends unknown>() => data as TData & TNonReactive;
@@ -73,8 +72,6 @@ const props = {
   },
 };
 
-type EventMap = { [eventName: string]: DomEvent.EventHandlerFn };
-
 export default Vue.extend({
   name: 'LFreeDraw',
   props,
@@ -95,11 +92,8 @@ export default Vue.extend({
         ...this.options,
         mode: this.mode,
       });
-      DomEvent.on(
-        (this.mapObject as unknown) as HTMLElement,
-        this.$listeners as EventMap,
-      );
-      propsBinder(this, this.mapObject, props);
+      this.mapObject.on(this.$listeners);
+      propsBinder(this, (this.mapObject as unknown) as Map, props);
 
       const debouncedHandler = debounce(this.markerHandler, 100);
 
@@ -129,10 +123,7 @@ export default Vue.extend({
   beforeDestroy() {
     if (this.mapObject) {
       this.mapObject.off('markers');
-      DomEvent.off(
-        (this.mapObject as unknown) as HTMLElement,
-        this.$listeners as EventMap,
-      );
+      this.mapObject.off(this.$listeners);
       this.mapObject.clear();
       this.setMode(NONE);
       if (this.parentContainer) {
