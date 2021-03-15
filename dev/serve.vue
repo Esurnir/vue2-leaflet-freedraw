@@ -7,7 +7,7 @@
         </button>
       </l-control>
       <l-tile-layer url="https://{s}.tile.osm.org/{z}/{x}/{y}.png" />
-      <l-freedraw v-model="polygons" :mode="mode" />
+      <l-freedraw v-model="polygons" :mode="mode" @markers="markerHandler" />
     </l-map>
   </div>
 </template>
@@ -17,7 +17,7 @@ import Vue from 'vue';
 import { latLng } from 'leaflet';
 import { LMap, LTileLayer, LControl } from 'vue2-leaflet';
 import LFreedraw from '@/l-freedraw.vue';
-import { ALL, NONE } from 'leaflet-freedraw';
+import { ALL, MarkerEvent, NONE } from 'leaflet-freedraw';
 
 export default Vue.extend({
   name: 'ServeDev',
@@ -68,12 +68,17 @@ export default Vue.extend({
   },
   watch: {
     polygons(newPolygons) {
+      // Using v-model to watch polygons
       console.log(newPolygons);
     },
   },
   methods: {
     flipActive() {
       this.isActive = !this.isActive;
+    },
+    markerHandler(event: MarkerEvent) {
+      // using the native markers event directly
+      console.log(event);
     },
   },
 });
