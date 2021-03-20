@@ -139,7 +139,7 @@ export const ALL = 15;
 
 ### value
 
-The v-model property : Accept a LatLng[][]
+The v-model property : Accept a `LatLng[][]`
 
 ### debounce
 
