@@ -1159,9 +1159,9 @@
   integrity sha1-7ihweulOEdK4J7y+UnC86n8+ce4=
 
 "@types/leaflet-freedraw@^2.13.0":
-  version "2.13.0"
-  resolved "https://registry.yarnpkg.com/@types/leaflet-freedraw/-/leaflet-freedraw-2.13.0.tgz#10894f463d135e8739fd89aab5bb0f56aae1e25c"
-  integrity sha512-GGe+tf3ciH4pAsnJa/et7UCCaye4hBbB59ruVQVVVPtS4/MjZfhoxNha/jWhfSo8gidnSGh9P2OT7RDyES99Vg==
+  version "2.13.1"
+  resolved "https://registry.yarnpkg.com/@types/leaflet-freedraw/-/leaflet-freedraw-2.13.1.tgz#b34026181e0fe675ac3e95e0e81ddc473a65f6f7"
+  integrity sha512-ZeD5C7fx+n6FgCi7g1BgpUgu+iUz9Ptw35MXDrQvhE7R2oi6za7SwxYUn9H9pCOE97wh4ptS9cHWiG+bsexmHQ==
   dependencies:
     "@types/leaflet" "*"
 
