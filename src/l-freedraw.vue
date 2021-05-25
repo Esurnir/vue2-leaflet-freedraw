@@ -4,16 +4,7 @@
 
 <script lang="ts">
 import Vue, { PropType } from 'vue';
-import FreeDraw, {
-  NONE,
-  CREATE,
-  EDIT,
-  APPEND,
-  EDIT_APPEND,
-  DELETE,
-  ALL,
-  MarkerEvent,
-} from 'leaflet-freedraw';
+import FreeDraw, { NONE, ALL, MarkerEvent } from 'leaflet-freedraw';
 import type { FreeDrawOptions } from 'leaflet-freedraw';
 import { findRealParent, propsBinder } from 'vue2-leaflet';
 import { debounce, isEqual } from 'lodash-es';
@@ -25,24 +16,10 @@ function withNonReactive<TData>(data: TData) {
 }
 
 function validateMode(mode: number) {
-  switch (mode) {
-    case NONE:
-      return true;
-    case CREATE:
-      return true;
-    case DELETE:
-      return true;
-    case EDIT:
-      return true;
-    case APPEND:
-      return true;
-    case EDIT_APPEND:
-      return true;
-    case ALL:
-      return true;
-    default:
-      return false;
+  if (mode < 0 || mode > ALL) {
+    return false;
   }
+  return true;
 }
 
 const props = {
